@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.Extensions.Configuration;
-using netcore_supabase.Model;
+using netcore_supabase.DbModels;
 
 var builder = new ConfigurationBuilder()
             .SetBasePath(AppContext.BaseDirectory)
@@ -26,7 +26,7 @@ var menus = result.Models.OrderBy(x=>x.Id);
 
 foreach (var menu in menus)
 {
-    Console.WriteLine($"Id: {menu.Id}, Stock: {menu.Stock}, Price: {menu.Price}, Title: {menu.Title}, image: {menu.Image}, categoryId: {menu.CategoryId}");
+    Console.WriteLine($"Id: {menu.Id}, Stock: {menu.Stock}, Price: {menu.Price}, Title: {menu.Title}, image: {menu.Image}, categoryId: {menu.Categoryid}");
 }
 
 
