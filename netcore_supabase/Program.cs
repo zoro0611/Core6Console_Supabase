@@ -22,12 +22,15 @@ var supabase = new Supabase.Client(usersecret_superbaseUrl, usersecret_superbase
 await supabase.InitializeAsync();
 
 var result = await supabase.From<Menu>().Get();
-var menus = result.Models.OrderBy(x=>x.Id);
+var menus = result.Models.OrderBy(x => x.Id);
 
-foreach (var menu in menus)
-{
-    Console.WriteLine($"Id: {menu.Id}, Stock: {menu.Stock}, Price: {menu.Price}, Title: {menu.Title}, image: {menu.Image}, categoryId: {menu.Categoryid}");
-}
+//foreach (var menu in menus)
+//{
+//    Console.WriteLine($"Id: {menu.Id}, Stock: {menu.Stock}, Price: {menu.Price}, Title: {menu.Title}, image: {menu.Image}, categoryId: {menu.Categoryid}");
+//}
+Menu m3 = result.Models.SingleOrDefault(x=>x.Id == 3);
+m3.Stock = 100;
+await supabase.From<Menu>().Update(m3);
 
 
 
